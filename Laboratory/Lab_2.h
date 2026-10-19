@@ -5,24 +5,37 @@
 #include<functional>
 
 /*
- * Function copy() has been searching for a target value in a input array (arr_in)
- * and copy that values to next positions in a new output array
+ * @brief Searches for a target values in the input array and copies them sequantially
+ *
+ * @param arr_in    Pointer to the source array.
+ * @param size      Number of elements to evaluate.
+ * @param target    The value to filter and copy.
+ * @param arr_out   Pointer to the output array.
+ * @return int      Status code (1 upon successful completion).
  */
 int copy(int *arr_in, int size, int target, int *arr_out );
 
 /*
- * Function copy2() generalise copy() taking any kind of boolian statement
- * as a target e.g. number % 2 or number < 10
+ * @brief Generalizes copy() by using a custom boolean predicate.
+ *
+ * @param arr_in      Pointer to the source array.
+ * @param size        Number of elemnts.
+ * @param true_false  Predicate funtion returing true or false.
+ * @param arr_out     Pointer to the output array.
+ * @return int        Status code (1 upon successful completion).
  */
-int copy2(int *arr_in, int size,const std::function<bool(int)>& true_false, int *arr_out );
+int copy2(int *arr_in, int size, const std::function<bool(int)>& true_false, int *arr_out );
 
 /*
- * Simple taking to second power the float number
+ * @brief Calculate the square of floating point number.
+ *
+ * @param x     Number to square.
+ * @return float    Result of x * x.
  */
 float square(float x);
 
 /*
- * Struct FunAndArg contains the pointer to the function and the argument as a float
+ * @brief Struct FunAndArg contains the pointer to the function and the argument as a float
  */
 struct FunAndArg{
     std::function<float(float)> fun;
@@ -30,12 +43,19 @@ struct FunAndArg{
 };
 
 /*
- * to_Fun_and_arg() has been combining the function and the argument to the struct
+ * @brief Combine a target function and an argument into a FunAndArg struct.
+ *
+ * @param f     Reference to the target function.
+ * @param a     Float argument to be passed to the function.
+ * @return FunAndArg Structure containing the function reference and argument.
  */
 FunAndArg to_Fun_and_arg(const std::function<float(float)>& f, float a);
 
 /*
- * show_arr() is a function displaying next values of the array in a order
+ * @brief Prints array elements sequantially to standard output in order.
+ *
+ * @param arr   Pointer to the input array.
+ * @param size  Number of elements in array.
  */
 void show_arr(int *arr, int size);
 
